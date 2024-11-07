@@ -1,0 +1,86 @@
+JFDML JFormDesigner: "8.2.4.0.393" Java: "21.0.4" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp separator1:::::x, seq t {space :::x, comp label5:::p:810:p, space :::p}, seq t {space :p:21:p, par t {seq {comp btnIniciar:::p:115:p, space :p:212:p, comp btnCapturar:::p:115:p}, comp lblImagem:::p:442:p}, space :::x, par l:::p {comp label2::l:::x, comp txfEmail::l:::x, comp label1::l:::x, comp txfNome::l:::x, comp label3::t:::x, seq l {comp btnSalvar:::p:115:p, space :::x, comp btnVoltar:::p:115:p}, comp cbxDepartamento::t::302:x}, space :p:23:p}}"
+			"$verticalGroup": "par l {seq l {space :p:20:p, comp label5:::p:35:p, space s:::p, comp separator1:::p::p, par l {seq {space :p:35:p, comp label1:::p:35:p, space s:::p, comp txfNome:::p:35:p, space s:::p, comp label2:::p:35:p, space :18:18:p, comp txfEmail:::p:35:p, space s:::p, comp label3:::p:35:p, space s:::p, comp cbxDepartamento:::p:35:p}, seq l {space :p:45:p, comp lblImagem:::p:348:p}}, space :p:86:p, par b {comp btnSalvar::b:p:46:p, comp btnVoltar::b:p:46:p, comp btnIniciar::l:p:46:p, comp btnCapturar::b:p:46:p}, space ::68:x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Nome do Usuário"
+				"font": &Font0 new java.awt.Font( "Arial", 1, 15 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfNome"
+				"font": new java.awt.Font( "Arial", 0, 15 )
+				"border": &LineBorder0 new javax.swing.border.LineBorder( sfield java.awt.Color black, 2, true )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Email"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfEmail"
+				"font": new java.awt.Font( "Arial", 0, 15 )
+				"border": #LineBorder0
+				"cursor": new java.awt.Cursor( 2 )
+				"text": "exemplo@teste.com.br"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "txfEmail", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Cargo"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "cbxDepartamento"
+				"font": new java.awt.Font( "Arial", 1, 15 )
+				"border": new javax.swing.border.LineBorder( sfield java.awt.Color black, 2, true )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "CADASTRO DE USUÁRIO"
+				"font": new java.awt.Font( "Arial", 1, 20 )
+				"horizontalAlignment": 0
+			} )
+			add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsSeparator" ) {
+				name: "separator1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnSalvar"
+				"text": "SALVAR"
+				"font": &Font1 new java.awt.Font( "Arial", 1, 14 )
+				"enabled": false
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnVoltar"
+				"text": "VOLTAR"
+				"font": #Font1
+				"actionCommand": "SALVAR"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "lblImagem"
+				"border": new javax.swing.border.TitledBorder( new javax.swing.border.LineBorder( sfield java.awt.Color black, 2, true ), "Imagem para Salvar", 4, 2, new java.awt.Font( "Arial Black", 1, 11 ), sfield java.awt.Color black )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnIniciar"
+				"text": "INICIAR"
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnCapturar"
+				"text": "CAPTURAR"
+				"font": #Font1
+				"actionCommand": "SALVAR"
+				"enabled": false
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 815, 700 )
+		} )
+	}
+}

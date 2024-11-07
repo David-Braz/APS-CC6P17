@@ -10,5 +10,7 @@
     <orderEntry type="library" name="mysql.connector.java" level="project" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="javacv-1.5.10" level="project" />
+    <orderEntry type="library" name="TableLayout" level="project" />
+    <orderEntry type="library" name="JGoodies Forms" level="project" />
   </component>
 </module>

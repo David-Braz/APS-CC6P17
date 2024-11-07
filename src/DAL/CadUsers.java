@@ -13,16 +13,17 @@ import java.sql.ResultSet;
 public class CadUsers {
     public String mensagem = "";
 
-    public Boolean Salvar(String nome, int privilegios, String departamento) {
+    public Boolean Salvar(String nome, String email, String cargo, int privilegios) {
 
         try{
 
             Connection con = Conexao.getConnection();
-            String sql = "INSERT INTO caduser (Nome, Privilegios, Setor) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO tabuser (Nome, Email, Cargo,nivel_acesso) VALUES (?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, nome);
-            ps.setInt(2, privilegios);
-            ps.setString(3, departamento);
+            ps.setString(2, email);
+            ps.setString(3, cargo);
+            ps.setInt(4, privilegios);
             ps.execute();
             mensagem = "Usuário cadastrado com sucesso!";
             ps.close();
@@ -40,12 +41,12 @@ public class CadUsers {
         try {
             Connection con = null;
             con = Conexao.getConnection();
-            String Query = "SELECT idUser FROM caduser WHERE Nome = ? LIMIT 1";
+            String Query = "SELECT id_usuario FROM tabuser WHERE Nome = ? LIMIT 1";
             PreparedStatement stmt = con.prepareStatement(Query);
             stmt.setString(1, nome);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // Se o ResultSet tiver pelo menos um registro
-                 idUser = rs.getInt("idUser");
+                 idUser = rs.getInt("id_usuario");
 
             }
         } catch (Exception e) {
@@ -60,13 +61,13 @@ public class CadUsers {
         try {
             Connection con = null;
             con = Conexao.getConnection();
-            String Query = "SELECT Nome,Privilegios FROM caduser WHERE idUser = ? LIMIT 1";
+            String Query = "SELECT Nome,nivel_acesso FROM tabuser WHERE id_usuario = ? LIMIT 1";
             PreparedStatement stmt = con.prepareStatement(Query);
             stmt.setInt(1, idUser);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) { // Se o ResultSet tiver pelo menos um registro
                 Nome = rs.getString("Nome");
-                Estatico.Priv = rs.getInt("Privilegios");
+                Estatico.Priv = rs.getInt("nivel_acesso");
                 System.out.print(Nome);
             }
         } catch (Exception e) {

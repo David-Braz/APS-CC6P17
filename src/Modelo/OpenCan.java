@@ -37,7 +37,6 @@ public class OpenCan {
             return;
         }
         CascadeClassifier Olhos = new CascadeClassifier("src/data/haarcascades_cuda/haarcascade_eye.xml");
-        CascadeClassifier Boca = new CascadeClassifier("src/data/faces/mouth.xml");
         CascadeClassifier Nariz = new CascadeClassifier("src/data/faces/haarcascade_nose.xml");
         running = true;
 

@@ -1,0 +1,118 @@
+JFDML JFormDesigner: "8.2.4.0.393" Java: "21.0.4" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {comp label5::t::798:x, seq l {space :p:24:p, par t {seq {comp label1:::p:170:p, space s:::p, comp txfPedido:::p:145:p, space :p:57:p, comp label2:::p:170:p, space u:::p, comp txfData:::p:185:p}, par t:::p {seq l {comp btnPrimeiro:::p:54:p, space :::p, comp btnVoltar:::p:54:p, space :::p, comp btnAvancar:::p:54:p, space :::p, comp btnUltimo:::p:54:p, space :::x, comp btnNovo:::p:54:p, space :::p, comp btnSalvar:::p:54:p, space :6:6:p, comp btnAlterar:::p:54:p, space :6:6:p, comp btnExcluir:::p:54:p, space :6:6:p, comp btnCancelar:::p:54:p}, seq l {par t {seq t {comp label3:::p:170:p, space :18:18:p, comp txfProduto:::p:302:p}, seq t {comp label7:::p:170:p, space :18:18:p, comp txfDepartamento:::p:302:p}}, space s:::p, par l {comp label4::l:p:109:p, comp label6::l:p:121:p}, space :::p, par l {comp txfSituacao:::p:122:p, comp txfQuantidade:::p:122:p}}}}, space ::17:x}}"
+			"$verticalGroup": "par l {seq l {space :p:26:p, comp label5:::p:35:p, space :p:63:p, par t {par b {comp label1::b:p:35:p, comp txfPedido::b:p:35:p}, par b {comp label2::b:p:35:p, comp txfData::b:p:35:p}}, space :p:65:p, par l {comp label3:::p:35:p, par b:l {comp txfProduto::b:p:35:p, comp label4::b:p:35:p, comp txfQuantidade::b:p:35:p}}, space :p:60:p, par l {comp label7:::p:35:p, comp txfDepartamento:::p:35:p, comp label6:::p:35:p, comp txfSituacao::l:p:35:p}, space :p:37:p, par l {comp btnPrimeiro:::p:41:p, comp btnVoltar:::p:41:p, comp btnAvancar:::p:41:p, comp btnUltimo:::p:41:p, comp btnSalvar:::p:41:p, comp btnAlterar:::p:41:p, comp btnExcluir:::p:41:p, comp btnCancelar:::p:41:p, comp btnNovo:::p:41:p}, space ::42:x}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "SOLICITAÇÃO DE COMPRA"
+				"font": new java.awt.Font( "Arial", 1, 20 )
+				"horizontalAlignment": 0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "Número do Pedido:"
+				"font": &Font0 new java.awt.Font( "Arial", 1, 15 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfPedido"
+				"font": &Font1 new java.awt.Font( "Arial", 0, 15 )
+				"border": &LineBorder0 new javax.swing.border.LineBorder( sfield java.awt.Color black, 2, true )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Descrição do Produto:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfProduto"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Quantidade:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfQuantidade"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label7"
+				"text": "Departamento:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfDepartamento"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Situação:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfSituacao"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnPrimeiro"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/pri.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnVoltar"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/voltarr.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnAvancar"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/avan.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnUltimo"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/ult.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnSalvar"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/salva.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnAlterar"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/alt.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnExcluir"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/excluir.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnCancelar"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/cancela.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnNovo"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/add.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Data da Solicitação:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfData"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 800, 505 )
+		} )
+	}
+}

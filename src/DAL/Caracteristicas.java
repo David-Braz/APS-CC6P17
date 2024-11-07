@@ -44,10 +44,10 @@ public class Caracteristicas {
                 double distanciaOlhos = Math.sqrt(Math.pow(Olhos.x - OlhosBD.x, 2) + Math.pow(Olhos.y - OlhosBD.y, 2));
                 double distanciaNariz = Math.sqrt(Math.pow(Nariz.x - NarizBD.x, 2) + Math.pow(Nariz.y - NarizBD.y, 2));
                 if (distanciaOlhos < 80 && distanciaNariz < 60) {
-                    mensagem = "Usuário Liberado! Diferença Olhos: " + distanciaOlhos + ", Diferença Nariz: " + distanciaNariz;
+                    mensagem = "Usuário Liberado!";
                     return true;
                 }
-                mensagem = "Usuário não Liberado! Diferença Olhos: " + distanciaOlhos + ", Diferença Nariz: " + distanciaNariz;
+                mensagem = "Usuário não Liberado!";
             }
         } catch (Exception e) {
             mensagem = "Erro ao buscar usuário: " + e.getMessage();
@@ -55,7 +55,7 @@ public class Caracteristicas {
         return false;
     }
     private static Point stringToPoint(String str) {
-        str = str.replace("{", "").replace("}", ""); // Remove { and }
+        str = str.replace("{", "").replace("}", "");
         String[] parts = str.split(",");
         double x = Double.parseDouble(parts[0].trim());
         double y = Double.parseDouble(parts[1].trim());
