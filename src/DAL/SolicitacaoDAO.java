@@ -134,4 +134,25 @@ public class SolicitacaoDAO {
             JOptionPane.showMessageDialog(null, "Erro ao alterar status da solicitacao de compra: " + e.getMessage());
         }
     }
+    public void puxarRegistro(Solicitacao solicitacao){
+        this.mensagem = "";
+        Connection con = null;
+        Statement stmt;
+        try {
+            String Query = "SELECT idSolicitacao,Produto,Quantidade,Departamento,DataSolicitacao,Status FROM tabsolicitacao WHERE idSolicitacao = "+ solicitacao.id_solicitacao +" ORDER BY idSolicitacao DESC LIMIT 1";
+            con = Conexao.getConnection();
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(Query);
+            if(rs.next()) {
+                solicitacao.Produto = rs.getString("Produto");
+                solicitacao.quantidade = rs.getInt("Quantidade");
+                solicitacao.data_solicitacao = rs.getDate("DataSolicitacao");
+            }
+            stmt.close();
+            con.close();
+        } catch (Exception e) {
+            this.mensagem = e.getMessage();
+            JOptionPane.showMessageDialog(null, "Erro ao buscar ultima solicitacao de compra: " + e.getMessage());
+        }
+    }
 }

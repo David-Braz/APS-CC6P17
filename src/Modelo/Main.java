@@ -1,10 +1,7 @@
 package Modelo;
 
 
-import Apresentacao.frmCadUser;
-import Apresentacao.frmComparativo;
-import Apresentacao.frmLogin;
-import Apresentacao.frmSolicitacao;
+import Apresentacao.*;
 
 public class Main {
 
@@ -15,7 +12,14 @@ public class Main {
 //        frm.setVisible(true);
 //        frmSolicitacao frm = new frmSolicitacao();
 //        frm.setVisible(true);
-        frmComparativo frm = new frmComparativo();
+//        frmComparativo frm = new frmComparativo();
+//        frm.setVisible(true);
+//        frmPrincipal frm = new frmPrincipal(1);
+//        frm.setVisible(true);
+//        frmComparativo frm = new frmComparativo();
+//        frm.setVisible(true);
+        frmAprovacao frm = new frmAprovacao();
         frm.setVisible(true);
+
     }
 }

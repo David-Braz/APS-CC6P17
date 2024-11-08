@@ -1,0 +1,95 @@
+JFDML JFormDesigner: "8.2.4.0.393" Java: "21.0.4" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:82:p, par l:::p {seq {comp label10:::p:134:p, space :p:54:p, comp txfProduto:::::x}, seq l {comp btnAprovar:::p::p, space :::x, comp btnCancelar:::p::p}, seq l {par l {comp label9::l:p:134:p, comp label8::l:p:134:p}, space :p:54:p, par l {comp txfData:::p:151:p, comp cbxSolict:::p:302:p}}, par t:l {seq {comp label4:::p:170:p, space :18:18:p, comp txfOrcamento1:::p:193:p}, seq {comp label5:::p:170:p, space s:::p, comp txfEconomia:::p:193:p}}, seq l {comp label3:::p:170:p, space :p:18:p, comp txfEmpresa1:::p:343:p}, seq l {comp label6:::p:170:p, space :p:18:p, comp txfQuantidade:::p:171:p}}, space ::80:x}}"
+			"$verticalGroup": "par l {seq {space :p:40:p, par b {comp label8::b:p:35:p, comp cbxSolict::b:p:35:p}, space :p:32:p, par b {comp label9::b:p:35:p, comp txfData::b:p:35:p}, space :p:46:p, par l {comp label10:::p:35:p, comp txfProduto:::p:35:p}, space :p:34:p, par l {comp label6:::p:35:p, comp txfQuantidade:::p:35:p}, space :p:32:p, par l {comp label3:::p:35:p, comp txfEmpresa1:::p:35:p}, space :p:31:p, par l {comp label4:::p:35:p, comp txfOrcamento1:::p:35:p}, space s:::p, par b {comp txfEconomia::b:p:35:p, comp label5::b:p:35:p}, space s:::p, par t {comp btnAprovar:::p:54:p, comp btnCancelar:::p:54:p}, space ::44:x}}"
+		} ) {
+			name: "this"
+			"title": "APROVAÇÃO"
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label8"
+				"text": "Solicitação:"
+				"font": &Font0 new java.awt.Font( "Arial", 1, 15 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label3"
+				"text": "Empresa:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfEmpresa1"
+				"font": &Font1 new java.awt.Font( "Arial", 0, 15 )
+				"border": &LineBorder0 new javax.swing.border.LineBorder( sfield java.awt.Color black, 2, true )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label9"
+				"text": "Data do Pedido:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfData"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Valor do Orçamento:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfOrcamento1"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label5"
+				"text": "Economia:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfEconomia"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnAprovar"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/icons8-aprovado-48.png" )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "btnCancelar"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/icons8-excluir-48.png" )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label10"
+				"text": "Produto:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfProduto"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "cbxSolict"
+				"font": new java.awt.Font( "Arial", 1, 15 )
+				"border": new javax.swing.border.LineBorder( sfield java.awt.Color black, 2, true )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label6"
+				"text": "Quantidade:"
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "txfQuantidade"
+				"font": #Font1
+				"border": #LineBorder0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 10, 0 )
+			"size": new java.awt.Dimension( 695, 625 )
+		} )
+	}
+}

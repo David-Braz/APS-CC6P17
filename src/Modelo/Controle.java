@@ -98,4 +98,5 @@ public class Controle {
         comparativoDAO.incluirComparativo(comparativo);
         this.mensagem = comparativoDAO.mensagem;
     }
+
 }

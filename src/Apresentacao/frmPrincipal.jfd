@@ -4,36 +4,45 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:25:p, par l {seq {comp btnServico::::115:x, space :p:348:p}, seq {par l {comp btnOrcamento:::p:109:p, seq {comp separator1:::p:338:p, space :::p, comp lblUser:::p:100:p}, comp btnAprovacao:::p:115:p, comp btnRelatorio:::p:115:p}, space ::19:x}}}}"
-			"$verticalGroup": "par l {seq l {space :p:27:p, par t {comp lblUser:::p:28:p, seq {comp btnServico:::p:39:p, space s:::p, comp btnOrcamento:::p:39:p, space s:::p, comp btnAprovacao:::p:39:p, space s:::p, comp btnRelatorio:::p:39:p, space :p:36:p, comp separator1:::p:13:p}}, space ::58:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:39:p, comp btnPedidos:::p:90:p, space :p:70:p, comp btnOrcamento:::p:90:p, space :p:68:p, comp btnAprovacao:::p:90:p, space ::432:x, comp btnCadastro:::p:90:p, space :p:34:p}, seq l {space :::p, comp separator1:::p:582:p, space u:::p, comp label1:::p:137:p, space s:::p, comp separator2::::242:x, space :::p}}"
+			"$verticalGroup": "par l {seq {space :p:47:p, par b {comp btnPedidos::b:p:90:p, comp btnOrcamento::b:p:90:p, comp btnAprovacao::b:p:90:p, comp btnCadastro::t:p:90:p}, space ::374:x, par l {seq t {comp separator1:::p::p, space :p:152:p}, seq t {comp label1:::p:30:p, space :p:138:p}, seq t {comp separator2:::p::p, space :p:151:p}}}}"
 		} ) {
 			name: "this"
-			"title": "SERVIÇO AMBIENTAL"
+			"title": "SOLICITAÇÃODE COMPRAS"
+			"background": new java.awt.Color( 204, 204, 204, 255 )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "btnServico"
-				"text": "SERVIÇO"
+				name: "btnPedidos"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/icons8-purchase-order-80.png" )
+				"border": &LineBorder0 new javax.swing.border.LineBorder( sfield java.awt.Color white, 2, true )
+				"background": new java.awt.Color( 245, 255, 255, 255 )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btnOrcamento"
-				"text": "ORÇAMENTO"
+				"border": #LineBorder0
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/icons8-orçamento-80.png" )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btnAprovacao"
-				"text": "APROVAÇÃO"
+				"border": #LineBorder0
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/icons8-aprovação-80.png" )
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "btnRelatorio"
-				"text": "RELATORIO"
+				name: "btnCadastro"
+				"border": #LineBorder0
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/Icones/icons8-cadastro-80.png" )
+			} )
+			add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsSeparator" ) {
+				name: "separator1"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "lblUser"
+				name: "label1"
 			} )
-			add( new FormComponent( "javax.swing.JSeparator" ) {
-				name: "separator1"
+			add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsSeparator" ) {
+				name: "separator2"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 490, 375 )
+			"size": new java.awt.Dimension( 1005, 710 )
 		} )
 	}
 }
