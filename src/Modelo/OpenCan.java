@@ -23,9 +23,10 @@ public class OpenCan {
     private String MatNariz;
     private Point P_Olhos;
     private Point P_Nariz;
+    private VideoCapture camera;
     public void openWebcam(JLabel imageLabel) {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        VideoCapture camera = new VideoCapture(0);
+        camera = new VideoCapture(0);
         Mat frame = new Mat();
         if (!camera.isOpened()) {
             System.out.println("Camera não Localizada!");
@@ -86,10 +87,12 @@ public class OpenCan {
             }
         }
         camera.release();
+
     }
 
     public void stopWebcam() {
         running = false;
+
 
     }
 
@@ -172,5 +175,13 @@ public class OpenCan {
 
     public Point getP_Nariz() {
         return P_Nariz;
+    }
+    public void closeCamera() {
+        if (camera != null && camera.isOpened()) {
+            camera.release();
+            System.out.println("Camera fechada com sucesso!");
+        } else {
+            System.out.println("Camera já está fechada ou não foi inicializada.");
+        }
     }
 }

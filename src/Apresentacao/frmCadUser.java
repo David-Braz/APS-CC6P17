@@ -31,7 +31,7 @@ public class frmCadUser extends JFrame implements ActionListener {
         btnCapturar.addActionListener(this);
         cbxDepartamento.addActionListener(this);
         cbxDepartamento.addItem("Solicitante");
-        cbxDepartamento.addItem("Aprovador");
+        cbxDepartamento.addItem("Orçamentista");
         cbxDepartamento.addItem("Gerente de Compras");
 
         txfEmail.addMouseListener(new MouseAdapter() {

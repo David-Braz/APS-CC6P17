@@ -120,6 +120,7 @@ public class frmLogin extends JFrame implements ActionListener {
         }
         if (e.getSource() == btnCadastrar) {
             openCan.stopWebcam();
+            openCan.closeCamera();
             frmCadUser frm = new frmCadUser();
             frm.setVisible(true);
         }

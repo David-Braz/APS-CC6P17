@@ -21,6 +21,7 @@ public class Caracteristicas {
             ps.execute();
             ps.close();
             con.close();
+            this.mensagem = "Usuario cadastrado com sucesso!";
             return true;
         } catch (Exception e) {
             this.mensagem = e.getMessage();

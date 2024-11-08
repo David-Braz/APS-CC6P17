@@ -12,5 +12,23 @@
     <orderEntry type="library" name="javacv-1.5.10" level="project" />
     <orderEntry type="library" name="TableLayout" level="project" />
     <orderEntry type="library" name="JGoodies Forms" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Jar/jgoodies-common-1.8.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://C:/Jar/jgoodies-forms-1.8.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

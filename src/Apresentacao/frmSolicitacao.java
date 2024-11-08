@@ -4,10 +4,15 @@
 
 package Apresentacao;
 
+import DAL.SolicitacaoDAO;
 import Modelo.Controle;
+import Modelo.Solicitacao;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -16,8 +21,25 @@ import javax.swing.border.*;
  * @author DAVID
  */
 public class frmSolicitacao extends JFrame implements ActionListener {
+    private int Acao = 0;
+    private Controle controle = new Controle();
+    private Solicitacao solicitacao = new Solicitacao();
+    private int id_pedido;
     public frmSolicitacao() {
         initComponents();
+
+        Solicitacao solicitacao = new Solicitacao();
+        SolicitacaoDAO solicitacaoDAO = new SolicitacaoDAO();
+        solicitacaoDAO.BuscarUltimoSolicitacao(solicitacao);
+        String newData = convertDate(solicitacao.data_solicitacao.toString());
+
+        txfData.setText(newData);
+        txfDepartamento.setText(solicitacao.Departamento);
+        id_pedido = solicitacao.id_solicitacao;
+        txfPedido.setText(String.valueOf(id_pedido));
+        txfProduto.setText(solicitacao.Produto);
+        txfQuantidade.setText(String.valueOf(solicitacao.quantidade));
+        txfSituacao.setText(solicitacao.Situacao);
         btnAlterar.addActionListener(this);
         btnCancelar.addActionListener(this);
         btnExcluir.addActionListener(this);
@@ -71,6 +93,7 @@ public class frmSolicitacao extends JFrame implements ActionListener {
         //---- txfPedido ----
         txfPedido.setFont(new Font("Arial", Font.PLAIN, 15));
         txfPedido.setBorder(new LineBorder(Color.black, 2, true));
+        txfPedido.setEnabled(false);
 
         //---- label3 ----
         label3.setText("Descri\u00e7\u00e3o do Produto:");
@@ -79,6 +102,7 @@ public class frmSolicitacao extends JFrame implements ActionListener {
         //---- txfProduto ----
         txfProduto.setFont(new Font("Arial", Font.PLAIN, 15));
         txfProduto.setBorder(new LineBorder(Color.black, 2, true));
+        txfProduto.setEnabled(false);
 
         //---- label4 ----
         label4.setText("Quantidade:");
@@ -87,6 +111,7 @@ public class frmSolicitacao extends JFrame implements ActionListener {
         //---- txfQuantidade ----
         txfQuantidade.setFont(new Font("Arial", Font.PLAIN, 15));
         txfQuantidade.setBorder(new LineBorder(Color.black, 2, true));
+        txfQuantidade.setEnabled(false);
 
         //---- label7 ----
         label7.setText("Departamento:");
@@ -95,6 +120,7 @@ public class frmSolicitacao extends JFrame implements ActionListener {
         //---- txfDepartamento ----
         txfDepartamento.setFont(new Font("Arial", Font.PLAIN, 15));
         txfDepartamento.setBorder(new LineBorder(Color.black, 2, true));
+        txfDepartamento.setEnabled(false);
 
         //---- label6 ----
         label6.setText("Situa\u00e7\u00e3o:");
@@ -103,6 +129,7 @@ public class frmSolicitacao extends JFrame implements ActionListener {
         //---- txfSituacao ----
         txfSituacao.setFont(new Font("Arial", Font.PLAIN, 15));
         txfSituacao.setBorder(new LineBorder(Color.black, 2, true));
+        txfSituacao.setEnabled(false);
 
         //---- btnPrimeiro ----
         btnPrimeiro.setIcon(new ImageIcon(getClass().getResource("/Icones/pri.png")));
@@ -138,6 +165,7 @@ public class frmSolicitacao extends JFrame implements ActionListener {
         //---- txfData ----
         txfData.setFont(new Font("Arial", Font.PLAIN, 15));
         txfData.setBorder(new LineBorder(Color.black, 2, true));
+        txfData.setEnabled(false);
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -267,10 +295,133 @@ public class frmSolicitacao extends JFrame implements ActionListener {
     public void actionPerformed(java.awt.event.ActionEvent e) {
         // TODO Auto-generated method stub
         if(e.getSource()== btnSalvar){
-            Controle controle = new Controle();
-            controle.SolicitacaoCompra(txfProduto.getText(), Integer.parseInt(txfQuantidade.getText()), txfDepartamento.getText(), txfData.getText(), txfSituacao.getText());
-            JOptionPane.showMessageDialog(null, controle.mensagem);
-        }
+            switch(Acao){
+                case 0:
 
+                    controle.SolicitacaoCompra(txfProduto.getText(), Integer.parseInt(txfQuantidade.getText()), txfDepartamento.getText(), txfData.getText(), txfSituacao.getText());
+                    JOptionPane.showMessageDialog(null, controle.mensagem);
+                    BloquearCampos();
+                    break;
+                case 1:
+                    controle.AlterarSolicitacao(txfProduto.getText(), Integer.parseInt(txfQuantidade.getText()), txfDepartamento.getText(), txfData.getText(), txfSituacao.getText());
+                    JOptionPane.showMessageDialog(null, controle.mensagem);
+                    BloquearCampos();
+                    break;
+            }
+        }
+        if(e.getSource()== btnNovo){
+            Acao = 0;
+            LiberarCampos();
+            LimparCampos();
+            int cont = id_pedido + 1;
+            id_pedido = Integer.parseInt(txfPedido.getText());
+            txfPedido.setText(String.valueOf(cont));
+            txfData.requestFocus();
+            txfSituacao.setText("Em Aberto");
+        }
+        if(e.getSource()== btnAlterar){
+            Acao = 1;
+            LiberarCampos();
+            txfData.requestFocus();
+        }
+        if(e.getSource() == btnCancelar){
+            BloquearCampos();
+            SolicitacaoDAO solicitacaoDAO = new SolicitacaoDAO();
+            String Query = "SELECT idSolicitacao,Produto,Quantidade,Departamento,DataSolicitacao,Status FROM tabsolicitacao WHERE idSolicitacao = " + id_pedido;
+            solicitacaoDAO.BuscarRegistro(id_pedido,solicitacao, Query);
+            id_pedido = solicitacao.id_solicitacao;
+            txfSituacao.setText(solicitacao.Situacao);
+            txfProduto.setText(solicitacao.Produto);
+            txfQuantidade.setText(String.valueOf(solicitacao.quantidade));
+            txfDepartamento.setText(solicitacao.Departamento);
+            txfData.setText(convertDate(solicitacao.data_solicitacao.toString()));
+
+        }
+        if(e.getSource() == btnExcluir){
+            controle.ExcluirSolicitacao(id_pedido);
+            JOptionPane.showMessageDialog(null, controle.mensagem);
+            SolicitacaoDAO solicitacaoDAO = new SolicitacaoDAO();
+            solicitacaoDAO.BuscarUltimoSolicitacao(solicitacao);
+            BloquearCampos();
+        }
+        if(e.getSource() == btnPrimeiro){
+            SolicitacaoDAO solicitacaoDAO = new SolicitacaoDAO();
+            String Query = "SELECT idSolicitacao,Produto,Quantidade,Departamento,DataSolicitacao,Status FROM tabsolicitacao ORDER BY idSolicitacao ASC LIMIT 1";
+            solicitacaoDAO.BuscarRegistro(id_pedido,solicitacao, Query);
+            id_pedido = solicitacao.id_solicitacao;
+            txfPedido.setText(String.valueOf(id_pedido));
+            txfSituacao.setText(solicitacao.Situacao);
+            txfProduto.setText(solicitacao.Produto);
+            txfQuantidade.setText(String.valueOf(solicitacao.quantidade));
+            txfDepartamento.setText(solicitacao.Departamento);
+            txfData.setText(convertDate(solicitacao.data_solicitacao.toString()));
+        }
+        if(e.getSource() == btnUltimo){
+            SolicitacaoDAO solicitacaoDAO = new SolicitacaoDAO();
+            String Query = "SELECT idSolicitacao,Produto,Quantidade,Departamento,DataSolicitacao,Status FROM tabsolicitacao ORDER BY idSolicitacao DESC LIMIT 1";
+            solicitacaoDAO.BuscarRegistro(id_pedido,solicitacao, Query);
+            id_pedido = solicitacao.id_solicitacao;
+            txfPedido.setText(String.valueOf(id_pedido));
+            txfSituacao.setText(solicitacao.Situacao);
+            txfProduto.setText(solicitacao.Produto);
+            txfQuantidade.setText(String.valueOf(solicitacao.quantidade));
+            txfDepartamento.setText(solicitacao.Departamento);
+            txfData.setText(convertDate(solicitacao.data_solicitacao.toString()));
+        }
+        if(e.getSource() == btnAvancar){
+            SolicitacaoDAO solicitacaoDAO = new SolicitacaoDAO();
+            String Query = "SELECT idSolicitacao,Produto,Quantidade,Departamento,DataSolicitacao,Status FROM tabsolicitacao WHERE idSolicitacao > " + id_pedido + " ORDER BY idSolicitacao ASC LIMIT 1";
+            solicitacaoDAO.BuscarRegistro(id_pedido,solicitacao, Query);
+            id_pedido = solicitacao.id_solicitacao;
+            txfPedido.setText(String.valueOf(id_pedido));
+            txfSituacao.setText(solicitacao.Situacao);
+            txfProduto.setText(solicitacao.Produto);
+            txfQuantidade.setText(String.valueOf(solicitacao.quantidade));
+            txfDepartamento.setText(solicitacao.Departamento);
+            txfData.setText(convertDate(solicitacao.data_solicitacao.toString()));
+        }
+        if(e.getSource() == btnVoltar){
+            SolicitacaoDAO solicitacaoDAO = new SolicitacaoDAO();
+            String Query = "SELECT idSolicitacao,Produto,Quantidade,Departamento,DataSolicitacao,Status FROM tabsolicitacao WHERE idSolicitacao < " + id_pedido + " ORDER BY idSolicitacao DESC LIMIT 1";
+            solicitacaoDAO.BuscarRegistro(id_pedido,solicitacao, Query);
+            id_pedido = solicitacao.id_solicitacao;
+            txfPedido.setText(String.valueOf(id_pedido));
+            txfSituacao.setText(solicitacao.Situacao);
+            txfProduto.setText(solicitacao.Produto);
+            txfQuantidade.setText(String.valueOf(solicitacao.quantidade));
+            txfDepartamento.setText(solicitacao.Departamento);
+            txfData.setText(convertDate(solicitacao.data_solicitacao.toString()));
+        }
+    }
+    private void LiberarCampos(){
+        txfProduto.setEnabled(true);
+        txfQuantidade.setEnabled(true);
+        txfDepartamento.setEnabled(true);
+        txfData.setEnabled(true);
+    }
+    private void LimparCampos(){
+        txfProduto.setText("");
+        txfDepartamento.setText("");
+        txfData.setText("");
+        txfSituacao.setText("");
+        txfQuantidade.setText("");
+    }
+    private void BloquearCampos(){
+        txfProduto.setEnabled(false);
+        txfQuantidade.setEnabled(false);
+        txfDepartamento.setEnabled(false);
+        txfData.setEnabled(false);
+    }
+    private static String convertDate(String dateStr) {
+        SimpleDateFormat fromFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat toFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date = fromFormat.parse(dateStr);
+            return toFormat.format(date);
+        } catch (ParseException e) {
+            System.out.print(e);
+            e.printStackTrace();
+            return null;
+        }
     }
 }

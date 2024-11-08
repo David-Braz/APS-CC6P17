@@ -23,6 +23,7 @@ new FormModel {
 				name: "txfPedido"
 				"font": &Font1 new java.awt.Font( "Arial", 0, 15 )
 				"border": &LineBorder0 new javax.swing.border.LineBorder( sfield java.awt.Color black, 2, true )
+				"enabled": false
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
@@ -33,6 +34,7 @@ new FormModel {
 				name: "txfProduto"
 				"font": #Font1
 				"border": #LineBorder0
+				"enabled": false
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
@@ -43,6 +45,7 @@ new FormModel {
 				name: "txfQuantidade"
 				"font": #Font1
 				"border": #LineBorder0
+				"enabled": false
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label7"
@@ -53,6 +56,7 @@ new FormModel {
 				name: "txfDepartamento"
 				"font": #Font1
 				"border": #LineBorder0
+				"enabled": false
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
@@ -63,6 +67,7 @@ new FormModel {
 				name: "txfSituacao"
 				"font": #Font1
 				"border": #LineBorder0
+				"enabled": false
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "btnPrimeiro"
@@ -109,6 +114,7 @@ new FormModel {
 				name: "txfData"
 				"font": #Font1
 				"border": #LineBorder0
+				"enabled": false
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
